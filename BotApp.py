@@ -14,15 +14,15 @@ rigbot = telebot.TeleBot(config1.token)
 
 def rig(message):
     ethermine = Ethermine() 
-    stats = ethermine.miner_worker_current_stats("0x29d23ea65d0f8b311698c2423570d124173b6337", "3070")
+    stats = ethermine.miner_worker_current_stats("0x29d23ea65d0f8b311698c2423570d124173b6337", "scudaminer1")
     currenthashrate = stats.get('currentHashrate')
-    while currenthashrate != 8888888.888888888:
+    while currenthashrate >= 140000000.00:
         print(currenthashrate)
-        time.sleep(300)
-        stats = ethermine.miner_worker_current_stats("0x29d23ea65d0f8b311698c2423570d124173b6337", "3070")
+        time.sleep(10)
+        stats = ethermine.miner_worker_current_stats("0x29d23ea65d0f8b311698c2423570d124173b6337", "scudaminer1")
         currenthashrate = stats.get('currentHashrate')
 
-    rigbot.send_message(message.chat.id, text='!!!!!!!!!!')
+    rigbot.send_message(message.chat.id, text='scudaminer1 Low Hashrate')
 
 if __name__ == '__main__': #если выполняется непосредственно тело модуля, то цикл повторяется бесконечно (для исключения
     #зависания при импорте модуля) Устойчивое выражение
