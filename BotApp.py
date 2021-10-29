@@ -16,6 +16,7 @@ def rig(message):
     ethermine = Ethermine() 
     stats = ethermine.miner_worker_current_stats("0x29d23ea65d0f8b311698c2423570d124173b6337", "scudaminer1")
     currenthashrate = stats.get('currentHashrate')
+    rigbot.send_message(message.chat.id, text='RigscanBot On Air')
     while currenthashrate >= 140000000.00:
         print(currenthashrate)
         time.sleep(10)
@@ -23,6 +24,7 @@ def rig(message):
         currenthashrate = stats.get('currentHashrate')
 
     rigbot.send_message(message.chat.id, text='scudaminer1 Low Hashrate')
+    rigbot.send_message(message.chat.id, text='Tap Start for begin Scanning')
 
 if __name__ == '__main__': #если выполняется непосредственно тело модуля, то цикл повторяется бесконечно (для исключения
     #зависания при импорте модуля) Устойчивое выражение

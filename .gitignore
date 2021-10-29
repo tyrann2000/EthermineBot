@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 
 config1.py
+rigscanbot.service
